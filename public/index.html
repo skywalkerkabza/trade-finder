@@ -1,0 +1,26 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Service Finder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Service Finder</h1>
+  <form id="searchForm">
+    <label for="city">Enter City:</label>
+    <input type="text" id="city" name="city" required>
+    <label for="serviceType">Select Service:</label>
+    <select id="serviceType" name="serviceType" required>
+      <option value="plumber">Plumber</option>
+      <option value="builder">Builder</option>
+      <option value="electrician">Electrician</option>
+    </select>
+    <button type="submit">Search</button>
+  </form>
+  <div id="results"></div>
+  <script src="script.js"></script>
+</body>
+</html>

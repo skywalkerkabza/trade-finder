@@ -1,0 +1,46 @@
+services:
+  web:
+    build: .
+    networks:
+      - mynetwork
+    ports:
+      - "3001:3001"
+    depends_on:
+      - mysql
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: testuser
+      MYSQL_PASSWORD: testpwd
+      MYSQL_DB: testdb
+      MYSQL_PORT: 3306
+    volumes:
+      - .:/usr/src/app
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-d
+    restart: always
+    networks:
+      - mynetwork
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpwd
+      MYSQL_DATABASE: testdb
+      MYSQL_USER: testuser
+      MYSQL_PASSWORD: testpwd
+    ports:
+      - "3309:3306"
+    platform: linux/amd64
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql  # Mount your init script here
+
+volumes:
+  mysql_data:
+
+networks:
+  mynetwork:

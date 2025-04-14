@@ -1,0 +1,29 @@
+{
+  "name": "trade-finder",
+  "version": "1.0.0",
+  "description": "application that lets users search for professionals (plumbers, builders, and electricians) by entering their city. The application will use MySQL to store professional details and Docker Compose to run two containers: one for the Node.js (Express) app and one for the MySQL server.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skywalkerkabza/trade-finder.git"
+  },
+  "author": "Codicis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/skywalkerkabza/trade-finder/issues"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "mysql2": "^3.14.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "homepage": "https://github.com/skywalkerkabza/trade-finder#readme",
+  "keywords": [],
+  "type": "commonjs"
+}
